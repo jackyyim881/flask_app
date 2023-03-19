@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/350a4a38a0.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Hiking Page</title>
+  </head>
+  <body>
+    {% block body %}
+
+    <div class="popup-screen">
+      <div class="popup-box">
+        <i class="fas fa-times close-btn"></i>
+        <h2>Popup</h2>
+
+        <a href="#" class="btn">Ok</a>
+      </div>
+    </div>
+
+    <section class="showcase">
+      <header>
+        <h2 class="logo">Hiking</h2>
+        <div class="toggle"></div>
+      </header>
+
+      <video
+        src="{{ url_for('static', filename='video/hiking2.mp4') }}"
+        muted
+        loop
+        autoplay
+      ></video>
+      <div class="overlay"></div>
+
+      <div class="text">
+        <h2>Never Stop</h2>
+        <h3>Exploring The World</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea nobis
+          necessitatibus fugiat iste quide m, sint assumenda ab earum repellat
+          saepe!
+        </p>
+
+        <a href="/explore">Explore</a>
+      </div>
+
+      <ul class="social">
+        <li>
+          <a href="#"
+            ><img
+              src="{{ url_for('static', filename='img/facebook.png') }}"
+              alt="facebook"
+              width="20%"
+              height="20%"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="{{ url_for('static', filename='img/twitter.png') }}"
+              alt="twitter"
+              width="20%"
+              height="20%"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="{{ url_for('static', filename='img/instagram.png') }}"
+              alt="instagram"
+              width="20%"
+              height="20%"
+          /></a>
+        </li>
+      </ul>
+    </section>
+
+    <div class="menu">
+      <ul>
+        <li><a href="login-page">Login</a></li>
+        <li><a href="register">Register</a></li>
+        <li><a href="#">Mountain</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </div>
+
+    <script>
+      const menuToggle = document.querySelector(".toggle");
+      const showcase = document.querySelector(".showcase");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        showcase.classList.toggle("active");
+      });
+
+      const popupScreen = document.querySelector(".popup-screen");
+      const popupBox = document.querySelector(".popup-box");
+      const closeBtn = document.querySelector(".close-btn");
+
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          popupScreen.classList.add("active");
+        }, 2000);
+      });
+
+      closeBtn.addEventListener("click", () => {
+        popupScreen.classList.remove("active");
+        document.cookie = "WebsiteName=testWebsite;max-age=" + 24 * 60 * 60;
+      });
+    </script>
+
+    {% endblock %}
+  </body>
+</html>
