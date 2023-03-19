@@ -24,7 +24,6 @@ def validate_record_schema(record):
         "forecastMaxtemp": latest_forecast.get('forecastMaxtemp').get('value'),
     }
     
-    
     # print(manual_added)
 
     return data
