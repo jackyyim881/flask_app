@@ -1,0 +1,74 @@
+
+<!--Store this code in 'register.html' file inside the 'templates' folder-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../static/login.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> register </title>
+</head>
+
+<body>
+    <div class="center">
+        <div class="">
+            <h1>Register</h1>
+        </div></br></br>
+          <form action="{{ url_for('mysql.register')}}" method="post" autocomplete="off">
+          <div class="msg">{{ msg }}</div>
+          <div class="txt_field">
+            <input type="text" name="username" placeholder="" class="textbox" id="username" required>
+                     <span></span>
+            <label>Username</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" name="password" placeholder="" class="textbox" id="password" required>
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div class="txt_field">
+
+            <input type="email" name="email" placeholder="" class="textbox" id="email" required> 
+            <span></span>
+            <label>Email</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" name="organisation" placeholder="" class="textbox" id="organisation" required>
+            <span></span>
+            <label>Organisation</label>
+          </div>
+          <div class="txt_field">
+            
+            <input type="text" name="address" placeholder="" class="textbox" id="address" required>
+            <span></span>
+            <label>Address</label>
+          </div>
+          <div class="txt_field">
+
+            <input type="text" name="city" placeholder="" class="textbox" id="city" required>
+            <span></span>
+            <label>City</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" name="state" placeholder="" class="textbox" id="state" required>
+            <span></span>
+            <label>State</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" name="country" placeholder="" class="textbox" id="country" required>
+            <span></span>
+            <label>Country</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" name="postalcode" placeholder="" class="textbox" id="postalcode" required>
+            <span></span>
+            <label>Postal Code</label>
+          </div>
+          <input type="submit" class="btn" value="Register">
+          <div class="signup_link">Already have account? <a class="worddark" href="{{ url_for('mysql.login')}}">Login here</a></p>
+          </div>
+        </form>
+    </div>
+</body>
+</html>
