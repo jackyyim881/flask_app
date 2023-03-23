@@ -4,33 +4,15 @@
 # print(r.text)
 
 
-import requests , json
 
 
-record = requests.get("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc")
-record.encoding = "utf-8"
+from flask import Blueprint
+
+bp = Blueprint('api', __name__)
 
 
-def validate_record_schema(record):
-    # manual_added  = record.get('weatherForecast')[1].get('forecastMintemp')
-    latest_forecast = record.get('weatherForecast')[0]
-    manual_added  = record.get('weatherForecast')[1].get('forecastMintemp')
 
-    data = {
-        'weatherForecast': manual_added.get('value'),
-        'forecastMintemp': manual_added.get('unit'),
-        "forecastDate": latest_forecast.get('forecastDate'),
-        "week": latest_forecast.get('week'),
-        "forecastMaxtemp": latest_forecast.get('forecastMaxtemp').get('value'),
-    }
-    
-    # print(manual_added)
-
-    return data
-
-r = requests.get('http://httpbin.org/get', params=validate_record_schema(record.json()))
-print(r.text)
-
+from app.api import routes
 
 
 
@@ -44,3 +26,26 @@ print(r.text)
 # data = {
 #     'name': state,
 # }
+# record = requests.get("https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc")
+# record.encoding = "utf-8"
+
+
+# def validate_record_schema(record):
+#     # manual_added  = record.get('weatherForecast')[1].get('forecastMintemp')
+#     latest_forecast = record.get('weatherForecast')[0]
+#     manual_added  = record.get('weatherForecast')[1].get('forecastMintemp')
+
+#     data = {
+#         'weatherForecast': manual_added.get('value'),
+#         'forecastMintemp': manual_added.get('unit'),
+#         "forecastDate": latest_forecast.get('forecastDate'),
+#         "week": latest_forecast.get('week'),
+#         "forecastMaxtemp": latest_forecast.get('forecastMaxtemp').get('value'),
+#     }
+    
+#     # print(manual_added)
+
+#     return data
+
+# r = requests.get('http://httpbin.org/get', params=validate_record_schema(record.json()))
+# print(r.text)

@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/d3ed2df8-c7a8-43d2-b31f-5194e16d4db6/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/flaskappvtc",
+  "appService.deploySubpath": "."
+}

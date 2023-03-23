@@ -37,6 +37,9 @@ from app.mysql import bp as aws_bp
 app.register_blueprint(aws_bp) 
 from app.errors import errors as errors_bp
 app.register_blueprint(errors_bp)
+from app.api import bp as api_bp
+app.register_blueprint(api_bp)
+
 
 
 # from app import models
